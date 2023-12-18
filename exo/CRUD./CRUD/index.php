@@ -35,16 +35,12 @@ deux livres avec le même ISBN dans la base de données.
 <?php
 include("functions/bdd.php");
 try {
-    // Connexion à la base de données avec PDO
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    // Configuration de PDO pour qu'il lance des exceptions en cas d'erreur
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Récupération des livres
     $stmt = $conn->prepare("SELECT id, titre, ISBN, resume FROM livre");
     $stmt->execute();
 
-    // Définition du mode de récupération
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $livres = $stmt->fetchAll();
 
@@ -52,9 +48,7 @@ try {
     echo "Erreur de connexion: " . $e->getMessage();
 }
 
-// Vérification si la variable $livres est définie et non vide
 if (!empty($livres)) {
-    // Affichage des livres
     echo "<table>";
     echo "<tr><th>ID</th><th>Titre</th><th>ISBN</th><th>Résumé</th><th>Actions</th></tr>";
 
@@ -64,7 +58,7 @@ if (!empty($livres)) {
         echo "<td>" . htmlspecialchars($livre['titre']) . "</td>";
         echo "<td>" . htmlspecialchars($livre['ISBN']) . "</td>";
         echo "<td>" . htmlspecialchars($livre['resume']) . "</td>";
-        echo "<td>
+        echo "<td>  
             <a href='./Views/read.php?id=" . $livre['id'] . "'>Afficher</a>
             <a href='./Views/update.php?id=" . $livre['id'] . "'>Modifier</a>
             <a href='./Controllers/delete_ctrl.php?id=" . $livre['id'] . "'>Supprimer</a>
