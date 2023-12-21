@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: white;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    color: #000000;
+    color: #333;
 }
 
 .container {
@@ -13,15 +13,15 @@ body {
 }
 
 header {
-    background: blue;
+    background: #333;
     color: #fff;
     padding-top: 30px;
     min-height: 70px;
-    border-bottom: #000000 1px solid;
+    border-bottom: #bbb 1px solid;
 }
 
 header a {
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 16px;
@@ -39,23 +39,12 @@ header li {
     padding: 0 20px 0 20px;
 }
 
-header #branding {
-    float: left;
-}
-
-header #branding h1 {
-    margin: 0;
-}
 
 header nav {
     float: right;
     margin-top: 10px;
 }
 
-header .highlight, header .current a {
-    color: #e8491d;
-    font-weight: bold;
-}
 
 header a:hover {
     color: #ffffff;
@@ -87,7 +76,7 @@ tr:nth-child(even) {
 }
 
 button, input[type="submit"] {
-    background-color:green;
+    background-color: #333;
     color: white;
     padding: 10px 15px;
     border: none;

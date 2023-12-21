@@ -1,6 +1,3 @@
-
-<!-- 
-
 Vous créer un Dossier dans exo qui se nomme CRUD.  Dans ce répertoire, vous placerez:
  un fichier index.php
 un répertoire Views  avec 4 fichiers à l'intérieur.  create.php , read.php , update.php
@@ -30,58 +27,3 @@ et d’un bouton submit.
 
 Vous devrez vérifier que l’ISBN ne contient pas de lettres. Il est impossible d’avoir 
 deux livres avec le même ISBN dans la base de données.
-
- -->
-<?php
-include("functions/bdd.php");
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $stmt = $conn->prepare("SELECT id, titre, ISBN, resume FROM livre");
-    $stmt->execute();
-
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $livres = $stmt->fetchAll();
-
-} catch(PDOException $e) {
-    echo "Erreur de connexion: " . $e->getMessage();
-}
-
-if (!empty($livres)) {
-    echo "<table>";
-    echo "<tr><th>ID</th><th>Titre</th><th>ISBN</th><th>Résumé</th><th>Actions</th></tr>";
-
-    foreach ($livres as $livre) {
-        echo "<tr>";
-        echo "<td>" . $livre['id'] . "</td>";
-        echo "<td>" . htmlspecialchars($livre['titre']) . "</td>";
-        echo "<td>" . htmlspecialchars($livre['ISBN']) . "</td>";
-        echo "<td>" . htmlspecialchars($livre['resume']) . "</td>";
-        echo "<td>  
-            <a href='./Views/read.php?id=" . $livre['id'] . "'>Afficher</a>
-            <a href='./Views/update.php?id=" . $livre['id'] . "'>Modifier</a>
-            <a href='./Controllers/delete_ctrl.php?id=" . $livre['id'] . "'>Supprimer</a>
-        </td>";
-        echo "</tr>";
-    }
-
-    echo "</table>";
-} else {
-    echo "Aucun livre trouvé.";
-}
-
-echo "<a href='./Views/create.php'>Ajouter un nouveau livre</a>";
-?> <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./functions/style.css">
-</head>
-<body>
-    
-</body>
-</html>
-
