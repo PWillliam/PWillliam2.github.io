@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bibliothèque</title>
+    <title>index</title>
     <style>
         table, tr,td,th {
             border: 1px dotted black;
@@ -17,19 +17,19 @@
 </head>
 <body>
     <form action="./Views/update.php" method="POST" id='form'>
-        <button formaction='./Views/create.php'>Créer un nouveau livre</button>
-        <button formaction='./Views/read.php'>Liste des livres</button>
+        <button formaction='./Views/create.php'>Créer un nouveau bateau</button>
+        <button formaction='./Views/read.php'>Liste des bateaux</button>
         <table>
             <tr>
                 <th>ID</th>
-                <th>Titre</th>
-                <th>ISBN</th>
-                <th>Résumé</th>
-                <th>Actions</th>
+                <th>nom</th>
+                <th>modele</th>
+                <th>taille</th>
+                <th>proprietaire</th>
             </tr>
             <?php
-                require_once './Controllers/read_ctrl.php';
-                foreach ($ListLivre as $livre) {
+                require_once './ctrl/read_ctrl.php';
+                foreach ($ListLivre as $Listlivre) {
                     // Syntaxe Here Document (HereDoc) sert à dire que on est bien en chaine de cractère mais permet
                     // de faire du code php quand même
                     echo <<<Heredoc
@@ -52,15 +52,10 @@
     </form>
     <script>
         document.getElementById('form').addEventListener('submit', function(DataEvent) {
-            // DataEvent stocke toute les donnée de l'événement
-            // submitter est l'élément qui a était utilisé pour appelé l'évenement
             if (DataEvent.submitter.name == 'delete') {
                 if (!confirm('Voulez vous vraiment supprimé le livre ?')) {
-                    // confirm affiche un dialogue sur notre page ou on peu confirmer ou supprimé
                     DataEvent.preventDefault();
-                    // preventDefault annule toute action par défaut d'un évenment 
-                    // Cet à dire submit doit normalement envoyé le forumaire vers quelque part 
-                    // preventDefault annnule cette action et lui dit de ne rien faire
+                
                 }
             }
         })

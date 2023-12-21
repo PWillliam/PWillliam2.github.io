@@ -32,9 +32,9 @@
             <pre>
                 <label for="id">ID :</label>
                 <input type="number" name="id" id="id" readonly value="<?php echo $update['id'] ?>">
-                <label for="nom">Titre :</label>
+                <label for="nom">nom :</label>
                 <input type="text" name="nom" id="nom" value="<?php echo $update['nom'] ?>">
-                <label for="modele">ISBN :</label>
+                <label for="modele">modele :</label>
                 <input type="text" name="modele" id="modele" maxlength="49" pattern='{0,50}' value="<?php echo $update['modele'] ?>">
                 <label for="taille">taille :</label>
                 <textarea name="taille" id="taille" cols="30" rows="10"><?php echo $update['taille'] ?></textarea>

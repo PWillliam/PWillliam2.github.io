@@ -15,11 +15,11 @@
         <?php
             require_once '../db.php';
 
-            $Listbateau = $BDD->prepare('SELECT * FROM bateaux');
-            $Listbateau->execute();
-            $Listbateau = $ListLivre->fetchAll(PDO::FETCH_ASSOC);
+            $Listlivre = $BDD->prepare('SELECT * FROM bateaux');
+            $Listlivre->execute();
+            $Listlivre = $Listlivre->fetchAll(PDO::FETCH_ASSOC);
         
-            foreach ($Listbateau as $bateau) {
+            foreach ($Listlivre as $livre) {
                 echo <<<echo
                 <li>
                     <ul>
