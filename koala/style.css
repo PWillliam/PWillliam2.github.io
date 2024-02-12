@@ -1,0 +1,79 @@
+body {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.koala {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    background-color: lightblue;
+    border-radius: 50% 50% 0 0;
+    overflow: hidden;
+}
+
+.ear {
+    position: absolute;
+    width: 80px;
+    height: 120px;
+    background-color: #7b5f4c; 
+    border-radius: 50%;
+    top: -30px;
+}
+
+.ear:nth-child(2) {
+    left: 50px;
+}
+
+.head {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #7b5f4c; /* Couleur de base du koala */
+    border-radius: 50%;
+    top: 30px;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff; /* Couleur du visage */
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    overflow: hidden;
+}
+
+.eye {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #000000; /* Couleur des yeux */
+    border-radius: 50%;
+    top: 20px;
+    left: 15px;
+}
+
+.nose {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #7b5f4c; /* Couleur de base du koala */
+    border-radius: 50%;
+    top: 40px;
+    left: 40px;
+}
+
+.body {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    background-color: #7b5f4c; /* Couleur de base du koala */
+    border-radius: 0 0 50% 50%;
+    top: 100px;
+}
